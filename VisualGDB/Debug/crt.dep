@@ -1,0 +1,5 @@
+VisualGDB/Debug/crt.o: \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/crt.S \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/encoding.h
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/encoding.h:

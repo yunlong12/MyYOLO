@@ -1,0 +1,114 @@
+VisualGDB/Debug/ov2640.o: ov2640.c \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\stdio.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\_ansi.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\newlib.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\_newlib_version.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\config.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\ieeefp.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\features.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\cdefs.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_default_types.h \
+ c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stddef.h \
+ c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stdarg.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\reent.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\_ansi.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_types.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_types.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\lock.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\types.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_stdint.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\endian.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_endian.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\select.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_sigset.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_timeval.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\timespec.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_timespec.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_pthreadtypes.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\sched.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\types.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\stdio.h ov2640.h \
+ c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stdint.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\stdint.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_intsup.h \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/dvp.h \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/plic.h \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/encoding.h \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/platform.h \
+ board_config.h
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\stdio.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\_ansi.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\newlib.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\_newlib_version.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\config.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\ieeefp.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\features.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\cdefs.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_default_types.h:
+
+c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stddef.h:
+
+c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stdarg.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\reent.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\_ansi.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_types.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_types.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\lock.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\types.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_stdint.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\endian.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_endian.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\select.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_sigset.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_timeval.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\timespec.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_timespec.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_pthreadtypes.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\sched.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\types.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\stdio.h:
+
+ov2640.h:
+
+c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stdint.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\stdint.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_intsup.h:
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/dvp.h:
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/plic.h:
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/encoding.h:
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/platform.h:
+
+board_config.h:

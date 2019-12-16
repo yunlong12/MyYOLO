@@ -1,0 +1,35 @@
+VisualGDB/Debug/fpioa.o: \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/fpioa.c \
+ c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stddef.h \
+ c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stdint.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\stdint.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_default_types.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\features.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\_newlib_version.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_intsup.h \
+ c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_stdint.h \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/fpioa.h \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/platform.h \
+ C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/sysctl.h
+
+c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stddef.h:
+
+c:\sysgcc\kendryte\lib\gcc\riscv64-unknown-elf\8.2.0\include\stdint.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\stdint.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\machine\_default_types.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\features.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\_newlib_version.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_intsup.h:
+
+c:\sysgcc\kendryte\riscv64-unknown-elf\include\sys\_stdint.h:
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/fpioa.h:
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/bsp/include/platform.h:
+
+C:/SysGCC/kendryte/kendryte-bsp/Standalone/lib/drivers/include/sysctl.h:

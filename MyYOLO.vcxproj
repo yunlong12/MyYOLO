@@ -55,6 +55,7 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
+    <ClCompile Include="image.c" />
     <ClCompile Include="lcd.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="nt35310.c" />

@@ -41,10 +41,12 @@ static int ai_done(void *ctx)
     return 0;
 }
 
-uint32_t g_lcd_gram0[38400] __attribute__((aligned(64)));
-uint32_t g_lcd_gram1[38400] __attribute__((aligned(64)));
+//uint32_t g_lcd_gram0[38400] __attribute__((aligned(64)));
+//uint32_t g_lcd_gram1[38400] __attribute__((aligned(64)));
+static uint16_t lcd_gram[320 * 240] __attribute__((aligned(32)));
 
-uint8_t g_ai_buf[320 * 240 *3] __attribute__((aligned(128)));
+//uint8_t g_ai_buf[320 * 240 *3] __attribute__((aligned(128)));
+extern const unsigned char gImage_image[320 * 240 * 3] __attribute__((aligned(128)));
 
 #define ANCHOR_NUM 5
 
@@ -53,25 +55,25 @@ float g_anchor[ANCHOR_NUM * 2] = {1.08, 1.19, 3.42, 4.41, 6.63, 11.38, 9.42, 5.1
 volatile uint8_t g_dvp_finish_flag = 0;
 volatile uint8_t g_ram_mux = 0;
 
-static int on_irq_dvp(void* ctx)
-{
-    if (dvp_get_interrupt(DVP_STS_FRAME_FINISH))
-    {
-        /* switch gram */
-        dvp_set_display_addr(g_ram_mux ? (uint32_t)g_lcd_gram0 : (uint32_t)g_lcd_gram1);
-
-        dvp_clear_interrupt(DVP_STS_FRAME_FINISH);
-        g_dvp_finish_flag = 1;
-    }
-    else
-    {
-        if(g_dvp_finish_flag == 0)
-            dvp_start_convert();
-        dvp_clear_interrupt(DVP_STS_FRAME_START);
-    }
-
-    return 0;
-}
+//static int on_irq_dvp(void* ctx)
+//{
+//    if (dvp_get_interrupt(DVP_STS_FRAME_FINISH))
+//    {
+//        /* switch gram */
+//        dvp_set_display_addr(g_ram_mux ? (uint32_t)g_lcd_gram0 : (uint32_t)g_lcd_gram1);
+//
+//        dvp_clear_interrupt(DVP_STS_FRAME_FINISH);
+//        g_dvp_finish_flag = 1;
+//    }
+//    else
+//    {
+//        if(g_dvp_finish_flag == 0)
+//            dvp_start_convert();
+//        dvp_clear_interrupt(DVP_STS_FRAME_START);
+//    }
+//
+//    return 0;
+//}
 
 #if BOARD_LICHEEDAN
 static void io_mux_init(void)
@@ -205,6 +207,22 @@ static void drawboxes(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, uint32
 #endif
 }
 
+void rgb888_to_lcd(uint8_t *src, uint16_t *dest, size_t width, size_t height)
+{
+	size_t i, chn_size = width * height;
+	for (size_t i = 0; i < width * height; i++)
+	{
+		uint8_t r = src[i];
+		uint8_t g = src[chn_size + i];
+		uint8_t b = src[chn_size * 2 + i];
+
+		uint16_t rgb = ((r & 0b11111000) << 8) | ((g & 0b11111100) << 3) | (b >> 3);
+		size_t d_i = i % 2 ? (i - 1) : (i + 1);
+		dest[d_i] = rgb;
+	}
+}
+
+
 int main(void)
 {
     /* Set CPU and dvp clk */
@@ -230,49 +248,49 @@ int main(void)
     lcd_draw_string(136, 70, "DEMO 1", WHITE);
     lcd_draw_string(104, 150, "20 class detection", WHITE);
     /* DVP init */
-    printf("DVP init\n");
-
-    #if OV5640
-    dvp_init(16);
-    dvp_set_xclk_rate(50000000);
-    dvp_enable_burst();
-    dvp_set_output_enable(0, 1);
-    dvp_set_output_enable(1, 1);
-    dvp_set_image_format(DVP_CFG_RGB_FORMAT);
-    dvp_set_image_size(320, 240);
-    ov5640_init();
-    #else
-    dvp_init(8);
-    dvp_set_xclk_rate(24000000);
-    dvp_enable_burst();
-    dvp_set_output_enable(0, 1);
-    dvp_set_output_enable(1, 1);
-    dvp_set_image_format(DVP_CFG_RGB_FORMAT);
-//    dvp_set_image_format(DVP_CFG_YUV_FORMAT);
-    dvp_set_image_size(320, 240);
-    ov2640_init();
-    #endif
-
-    dvp_set_ai_addr((uint32_t)g_ai_buf, (uint32_t)(g_ai_buf + 320 * 240), (uint32_t)(g_ai_buf + 320 * 240 * 2));
-    dvp_set_display_addr((uint32_t)g_lcd_gram0);
-    dvp_config_interrupt(DVP_CFG_START_INT_ENABLE | DVP_CFG_FINISH_INT_ENABLE, 0);
-    dvp_disable_auto();
+//    printf("DVP init\n");
+//
+//    #if OV5640
+//    dvp_init(16);
+//    dvp_set_xclk_rate(50000000);
+//    dvp_enable_burst();
+//    dvp_set_output_enable(0, 1);
+//    dvp_set_output_enable(1, 1);
+//    dvp_set_image_format(DVP_CFG_RGB_FORMAT);
+//    dvp_set_image_size(320, 240);
+//    ov5640_init();
+//    #else
+//    dvp_init(8);
+//    dvp_set_xclk_rate(24000000);
+//    dvp_enable_burst();
+//    dvp_set_output_enable(0, 1);
+//    dvp_set_output_enable(1, 1);
+//    dvp_set_image_format(DVP_CFG_RGB_FORMAT);
+////    dvp_set_image_format(DVP_CFG_YUV_FORMAT);
+//    dvp_set_image_size(320, 240);
+//    ov2640_init();
+//    #endif
+//
+//    dvp_set_ai_addr((uint32_t)g_ai_buf, (uint32_t)(g_ai_buf + 320 * 240), (uint32_t)(g_ai_buf + 320 * 240 * 2));
+//    dvp_set_display_addr((uint32_t)g_lcd_gram0);
+//    dvp_config_interrupt(DVP_CFG_START_INT_ENABLE | DVP_CFG_FINISH_INT_ENABLE, 0);
+//    dvp_disable_auto();
 
     /* DVP interrupt config */
-    printf("DVP interrupt config\n");
-    plic_set_priority(IRQN_DVP_INTERRUPT, 1);
-    plic_irq_register(IRQN_DVP_INTERRUPT, on_irq_dvp, NULL);
-    plic_irq_enable(IRQN_DVP_INTERRUPT);
+//    printf("DVP interrupt config\n");
+//    plic_set_priority(IRQN_DVP_INTERRUPT, 1);
+//    plic_irq_register(IRQN_DVP_INTERRUPT, on_irq_dvp, NULL);
+//    plic_irq_enable(IRQN_DVP_INTERRUPT);
 
     /* enable global interrupt */
     sysctl_enable_irq();
 
     /* system start */
     printf("system start\n");
-    g_ram_mux = 0;
-    g_dvp_finish_flag = 0;
-    dvp_clear_interrupt(DVP_STS_FRAME_START | DVP_STS_FRAME_FINISH);
-    dvp_config_interrupt(DVP_CFG_START_INT_ENABLE | DVP_CFG_FINISH_INT_ENABLE, 1);
+    //g_ram_mux = 0;
+    //g_dvp_finish_flag = 0;
+    //dvp_clear_interrupt(DVP_STS_FRAME_START | DVP_STS_FRAME_FINISH);
+    //dvp_config_interrupt(DVP_CFG_START_INT_ENABLE | DVP_CFG_FINISH_INT_ENABLE, 1);
 
     /* init kpu */
     if (kpu_load_kmodel(&task, model_data) != 0)
@@ -280,40 +298,52 @@ int main(void)
         printf("\nmodel init error\n");
         while (1);
     }
+	
 
+	lcd_clear(BLACK);
+	lcd_draw_string(136, 70, "Have load model", WHITE);
+	
     detect_rl.anchor_number = ANCHOR_NUM;
     detect_rl.anchor = g_anchor;
-    detect_rl.threshold = 0.7;
-    detect_rl.nms_value = 0.3;
+    detect_rl.threshold = 0.5;
+    detect_rl.nms_value = 0.2;
     region_layer_init(&detect_rl, 10, 7, 125, 320, 240);
 
-    while (1)
+	lcd_clear(BLACK);
+	lcd_draw_string(136, 70, "1", WHITE);
     {
-        /* dvp finish*/
-        while (g_dvp_finish_flag == 0)
-            ;
+	    g_ai_done_flag = 0;
+	    /* start to calculate */
+	    kpu_run_kmodel(&task, gImage_image, DMAC_CHANNEL5, ai_done, NULL);
+	    while (!g_ai_done_flag) ;
 
-        /* start to calculate */
-        kpu_run_kmodel(&task, g_ai_buf, DMAC_CHANNEL5, ai_done, NULL);
-        while(!g_ai_done_flag);
-        g_ai_done_flag = 0;
+	    lcd_clear(BLACK);
+	    lcd_draw_string(136, 70, "2", WHITE);
+	    
+	    float *output;
+	    size_t output_size;
+	    kpu_get_output(&task, 0, &output, &output_size);
+	    detect_rl.input = output;
+	    output_size /= sizeof(float);
 
-        float *output;
-        size_t output_size;
-        kpu_get_output(&task, 0, &output, &output_size);
-        detect_rl.input = output;
+	    lcd_clear(BLACK);
+	    lcd_draw_string(136, 70, "3", WHITE);
+	    
+	    /* start region layer */
+	    region_layer_run(&detect_rl, NULL);
 
-        /* start region layer */
-        region_layer_run(&detect_rl, NULL);
+	    /* display pic*/
+	    rgb888_to_lcd(gImage_image, lcd_gram, 320, 240);
+	    lcd_draw_picture(0, 0, 320, 240, lcd_gram);
+	    
+	    //lcd_clear(BLACK);
+	    lcd_draw_string(136, 70, "4", WHITE);
 
-        /* display pic*/
-        g_ram_mux ^= 0x01;
-        lcd_draw_picture(0, 0, 320, 240, g_ram_mux ? g_lcd_gram0 : g_lcd_gram1);
-        g_dvp_finish_flag = 0;
-
-        /* draw boxs */
-        region_layer_draw_boxes(&detect_rl, drawboxes);
+	    /* draw boxs */
+	    region_layer_draw_boxes(&detect_rl, drawboxes);
     }
+	
+	while (1) ;
 
     return 0;
 }

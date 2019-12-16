@@ -1,0 +1,37 @@
+﻿  main.c
+  main.c: In function 'rgb888_to_lcd':
+main.c(212,9): warning :  unused variable 'i' [-Wunused-variable]
+    size_t i, chn_size = width * height;
+           ^
+  main.c: In function 'main':
+main.c(317,57): warning :  passing argument 4 of 'kpu_run_kmodel' from incompatible pointer type [-Wincompatible-pointer-types]
+        kpu_run_kmodel(&task, gImage_image, DMAC_CHANNEL5, ai_done, NULL);
+                                                           ^~~~~~~
+  main.c(20):
+  C:\SysGCC\kendryte\kendryte-bsp\Standalone\lib\drivers\include\kpu.h(960,116): note :  expected 'kpu_done_callback_t' {aka 'void (*)(void *)'} but argument is of type 'int (*)(void *)'
+   int kpu_run_kmodel(kpu_model_context_t *ctx, const uint8_t *src, dmac_channel_number_t dma_ch, kpu_done_callback_t done_callback, void *userdata);
+                                                                                                  ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+main.c(325,31): warning :  passing argument 3 of 'kpu_get_output' from incompatible pointer type [-Wincompatible-pointer-types]
+        kpu_get_output(&task, 0, &output, &output_size);
+                                 ^~~~~~~
+  main.c(20):
+  C:\SysGCC\kendryte\kendryte-bsp\Standalone\lib\drivers\include\kpu.h(945,72): note :  expected 'uint8_t **' {aka 'unsigned char **'} but argument is of type 'float **'
+   int kpu_get_output(kpu_model_context_t *ctx, uint32_t index, uint8_t **data, size_t *size);
+                                                                ~~~~~~~~~~^~~~
+main.c(336,20): warning :  passing argument 1 of 'rgb888_to_lcd' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+        rgb888_to_lcd(gImage_image, lcd_gram, 320, 240);
+                      ^~~~~~~~~~~~
+  main.c(210,29): note :  expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const unsigned char *'
+   void rgb888_to_lcd(uint8_t *src, uint16_t *dest, size_t width, size_t height)
+                      ~~~~~~~~~^~~
+main.c(337,39): warning :  passing argument 5 of 'lcd_draw_picture' from incompatible pointer type [-Wincompatible-pointer-types]
+        lcd_draw_picture(0, 0, 320, 240, lcd_gram);
+                                         ^~~~~~~~
+  main.c(7):
+  lcd.h(62,92): note :  expected 'uint32_t *' {aka 'unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+   void lcd_draw_picture(uint16_t x1, uint16_t y1, uint16_t width, uint16_t height, uint32_t *ptr);
+                                                                                    ~~~~~~~~~~^~~
+  Linking VisualGDB/Debug/MyYOLO...
+  ------------------- Memory utilization report -------------------
+  Used RAM: 1983KB out of 6144KB (32%) [-24]
+  Used RAM (NOCACHE): 0 bytes out of 6144KB (0%)
