@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|VisualGDB">
+      <Configuration>Debug</Configuration>
+      <Platform>VisualGDB</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|VisualGDB">
+      <Configuration>Release</Configuration>
+      <Platform>VisualGDB</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{4162888D-3D3B-4FB1-9DD4-FA5472483E16}</ProjectGuid>
+    <BSP_ID>com.sysprogs.riscv.kendryte</BSP_ID>
+    <BSP_VERSION>1.0</BSP_VERSION>
+    <InPlaceBSPSubdir />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <MCUPropertyListFile>$(ProjectDir)mcu.props</MCUPropertyListFile>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <MCUPropertyListFile>$(ProjectDir)mcu.props</MCUPropertyListFile>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <GNUConfigurationType>Debug</GNUConfigurationType>
+    <ToolchainID>com.visualgdb.riscv.kendryte</ToolchainID>
+    <ToolchainVersion>8.2.0/8.2/r0</ToolchainVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <ToolchainID>com.visualgdb.riscv.kendryte</ToolchainID>
+    <ToolchainVersion>8.2.0/8.2/r0</ToolchainVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <ClCompile>
+      <CPPLanguageStandard>GNUPP1Z</CPPLanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <ClCompile>
+      <CPPLanguageStandard>GNUPP1Z</CPPLanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="lcd.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="nt35310.c" />
+    <ClCompile Include="ov2640.c" />
+    <ClCompile Include="ov5640.c" />
+    <None Include="README.md" />
+    <ClCompile Include="region_layer.c" />
+    <None Include="yolo.kmodel" />
+    <None Include="mcu.props" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\crt.S" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\entry.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\entry_user.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\interrupt.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\locks.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\printf.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\sleep.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\bsp\syscalls.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\aes.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\apu.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\clint.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\dmac.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\dvp.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\fft.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\fpioa.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\gpio.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\gpiohs.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\i2c.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\i2s.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\kpu.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\plic.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\pwm.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\rtc.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\sha256.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\spi.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\sysctl.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\timer.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\uart.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\uarths.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\utils.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\drivers\wdt.c" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\nncase\nncase.cpp" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\nncase\runtime\interpreter.cpp" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\nncase\runtime\kernel_registry.cpp" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\nncase\targets\cpu\cpu_ops.cpp" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\nncase\targets\k210\k210_interpreter.cpp" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\nncase\targets\k210\k210_ops.cpp" />
+    <ClCompile Include="$(BSP_ROOT)\Standalone\lib\nncase\targets\neutral\neutral_ops.cpp" />
+    <ClInclude Include="board_config.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="incbin.h" />
+    <ClInclude Include="lcd.h" />
+    <ClInclude Include="nt35310.h" />
+    <ClInclude Include="ov2640.h" />
+    <ClInclude Include="ov5640.h" />
+    <ClInclude Include="ov5640cfg.h" />
+    <ClInclude Include="region_layer.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\atomic.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\bsp.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\dump.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\encoding.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\entry.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\interrupt.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\platform.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\printf.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\sleep.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\syscalls.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\bsp\include\util.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\aes.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\apu.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\clint.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\dmac.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\dvp.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\fft.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\fpioa.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\gpio.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\gpio_common.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\gpiohs.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\i2c.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\i2s.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\io.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\kpu.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\plic.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\pwm.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\rtc.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\sha256.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\spi.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\sysctl.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\timer.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\uart.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\uarths.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\kernels\utils.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\drivers\include\wdt.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\datatypes.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\kernels\cpu\cpu_kernels.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\kernels\k210\k210_kernels.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\kernels\neutral\neutral_kernels.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\nncase.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\runtime\binary_writer.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\targets\k210\interpreter.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\runtime\kernel_registry.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\runtime\model.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\runtime\runtime_op.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\runtime\span_reader.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\runtime\target_config.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\runtime_op_utility.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\targets\cpu\cpu_ops_body.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\targets\k210\k210_ops_body.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\targets\k210\k210_runtime_op_utility.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\targets\k210\k210_sim_types.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\targets\neutral\neutral_ops_body.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\nncase\include\targets\node_body.h" />
+    <ClInclude Include="$(BSP_ROOT)\Standalone\lib\utils\include\syslog.h" />
+    <None Include="MyYOLO-Debug.vgdbsettings" />
+    <None Include="MyYOLO-Release.vgdbsettings" />
+    <None Include="MCU.xml" />
+  </ItemGroup>
+</Project>
